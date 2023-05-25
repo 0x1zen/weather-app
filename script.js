@@ -12,6 +12,15 @@ let currentTab=userTab;
 let API_KEY="3ff3b550f32b88b5b9814fa296242404";
 currentTab.classList.add("current-tab");
 
+function switchTab(clickedTab){
+if(clickedTab!=currentTab){
+    currentTab.classList.remove("current-tab");
+    currentTab=clickedTab;
+    currentTab.classList.add("current-tab");
+    
+}
+}
+
 userTab.addEventListener("click",()=>{
     // pass clicked tab as input parameter
 switchTab(userTab)
