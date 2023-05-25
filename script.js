@@ -29,6 +29,18 @@ if(clickedTab!=currentTab){
     }
 }
 }
+// Check if coordinates already present in session storage
+function getFromSessionStorage(){
+const localCoordinates=sessionStorage.getItem("user-coordinates");
+// if local coordinates not present
+if(!localCoordinates){
+    grantAccessContainer.classList.add("active");
+}
+else{
+    const coordinates=JSON.parse(localCoordinates);
+    fetchUserWeatherInfo(coordinates);
+}
+}
 
 userTab.addEventListener("click",()=>{
     // pass clicked tab as input parameter
