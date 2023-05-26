@@ -71,7 +71,7 @@ h1{
 
 
 .grant-location-container{
-    /* display:none; */
+    display:none;
 }
 .grant-location-container.active{
     display:flex;
@@ -92,3 +92,13 @@ text-align:center;
     margin-bottom: 1.75rem;
     letter-spacing: 0.75px;
 }
+.loading-container{
+    display:none;
+}
+.loading-container:active{
+    display:flex;
+}
+.loading-container p{
+    text-transform: uppercase;
+}
+
