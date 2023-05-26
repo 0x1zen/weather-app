@@ -62,3 +62,26 @@ h1{
     padding: 10px 30px;
     margin-bottom: 10px;
 }
+.sub-container{
+    display:flex;
+    flex-direction:column;
+    align-items: center; 
+    gap:10px;
+}
+
+
+.grant-location-container{
+    /* display:none; */
+}
+.grant-location-container.active{
+    display:flex;
+}
+.grant-location-container img{
+margin:2rem;
+}
+.grant-location-container p:first-of-type{
+font-size: 1.75rem;
+font-weight:600;
+text-align:center;
+
+}
