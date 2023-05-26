@@ -5,6 +5,7 @@ const grantAccessContainer=document.querySelector(".grant-location-container");
 const searchForm=document.querySelector("[data-searchForm]");
 const loadingScreen=document.querySelector(".loading-container");
 const userInfoContainer=document.querySelector(".user-info-container");
+const grantAccessBtn=document.querySelector("[data-grantBtn]");
 
 // initial variables
 
@@ -91,8 +92,7 @@ function getFromSessionStorage(){
         weatherIcon.src = `http://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
         temperature.innerText=weatherInfo?.main?.temp;
         humidity.innerText=weatherInfo?.main?.humidity;
-
-        
-
     }
+  grantAccessBtn.addEventListener("click",getLocation);
 
+   
