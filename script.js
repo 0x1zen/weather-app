@@ -14,6 +14,7 @@ let currentTab=userTab;
 let API_KEY="d1845658f92b31c64bd94f06f7188c9c";
 currentTab.classList.add("current-tab");
 
+
 function switchTab(clickedTab){
 if(clickedTab!=currentTab){
     currentTab.classList.remove("current-tab");
@@ -112,5 +113,15 @@ function getFromSessionStorage(){
         fetchUserWeatherInfo(userCoordinates);
         }
   grantAccessBtn.addEventListener("click",getLocation);
+
+let searchInput=document.querySelector("[data-searchInput]");
+  searchForm.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    if(searchInput.value==="") return;
+    fetchSearchWeatherInfo(searchInput);
+  });
+
+
+  
 
    
