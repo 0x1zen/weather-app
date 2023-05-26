@@ -4,6 +4,13 @@
     box-sizing: border-box;
     font-family: 'Merriweather Sans', sans-serif;
 }
+:root {
+    --colorDark1: #112D4E;
+    --colorDark2: #3F72AF;
+    --colorLight1: #DBE2EF;
+    --colorLight2: #F9F7F7;
+}
+
 .tab.current-tab{
     background-color: rgba(219, 226, 239, 0.5);
     border-radius: 4px;
