@@ -46,4 +46,19 @@ h1{
     letter-spacing: 1.75px;
     padding: 5px 8px;
 }
-
+.weather-container{
+    margin-block:4rem;
+}
+.btn{
+    all: unset;
+    /* appearance: none;
+    border:none;
+    color: white; */
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background-color: var(--colorDark2);
+    cursor: pointer;
+    padding: 10px 30px;
+    margin-bottom: 10px;
+}
