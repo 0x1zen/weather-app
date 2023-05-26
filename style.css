@@ -20,3 +20,10 @@
     scale:1;
     display: flex;
 }
+.wrapper{
+    width:100vw;
+    height:100vh;
+    color:var(--colorLight2);
+    background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%);
+    
+}
