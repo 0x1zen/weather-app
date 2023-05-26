@@ -192,4 +192,7 @@ text-align:center;
     background-color:rgba(219, 226, 239, 0.5);
     border-radius: 10px;
 }
+.form-container input::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
 
