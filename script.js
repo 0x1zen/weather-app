@@ -5,7 +5,7 @@ const grantAccessContainer=document.querySelector(".grant-location-container");
 const searchForm=document.querySelector("[data-searchForm]");
 const loadingScreen=document.querySelector(".loading-container");
 const userInfoContainer=document.querySelector(".user-info-container");
-const grantAccessBtn=document.querySelector("[data-grantBtn]");
+const grantAccessBtn=document.querySelector("[data-grantButton]");
 
 // initial variables
 
@@ -60,19 +60,16 @@ function getFromSessionStorage(){
         loadingScreen.classList.add("active");
         // API CALL
         try{
-        const res=await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric}`); 
+        const response=await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric}`); 
         const data= await response.json();
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
         renderWeatherInfo(data);
         }
-        catch(err){
-        loadingScreen.classList.remove("active");
-        var message="Error Occured! Please try again in some time."
-        alert(message);
-        return true;
-        };
+        catch(error){
+            console.log("An error occurred:", error);
     }
+        };
     function renderWeatherInfo(weatherInfo){
         // fetch elements
         const cityName=document.querySelector("[data-cityName]");
@@ -89,7 +86,7 @@ function getFromSessionStorage(){
         windSpeed.innerText=weatherInfo?.wind?.speed;
         clouds.innerText=weatherInfo?.clouds?.all;
         countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
-        desc.innerText = weatherInfo?.weather?.[0]?.description;
+        weatherdesc.innerText = weatherInfo?.weather?.[0]?.description;
         weatherIcon.src = `http://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
         temperature.innerText=weatherInfo?.main?.temp;
         humidity.innerText=weatherInfo?.main?.humidity;
@@ -104,17 +101,17 @@ function getFromSessionStorage(){
             return true;
         }
     }
-    function showPosition(){
+    function showPosition(position){
         const userCoordinates={
-            lat: Position.coords.latitude,
-            lon: Position.coords.longitude,
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
         }
-        sessionStorage.setItem("user-coordinates",JSON.stringify);
+        sessionStorage.setItem("user-coordinates",JSON.stringify(userCoordinates));
         fetchUserWeatherInfo(userCoordinates);
         }
   grantAccessBtn.addEventListener("click",getLocation);
 
-let searchInput=document.querySelector("[data-searchInput]");
+const searchInput=document.querySelector("[data-searchInput]");
   searchForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     if(searchInput.value==="") return;
