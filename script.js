@@ -7,6 +7,8 @@ const loadingScreen=document.querySelector(".loading-container");
 const userInfoContainer=document.querySelector(".user-info-container");
 const grantAccessBtn=document.querySelector("[data-grantButton]");
 
+
+
 // initial variables
 
 let currentTab=userTab;
@@ -83,13 +85,13 @@ function getFromSessionStorage(){
 
         // fetching values from weatherInfo object
         cityName.innerText=weatherInfo?.name;
-        windSpeed.innerText=weatherInfo?.wind?.speed;
-        clouds.innerText=weatherInfo?.clouds?.all;
+        windSpeed.innerText=`${weatherInfo?.wind?.speed} m/s`;
+        clouds.innerText=`${weatherInfo?.clouds?.all}%`;
         countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
         weatherdesc.innerText = weatherInfo?.weather?.[0]?.description;
         weatherIcon.src = `http://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
-        temperature.innerText=weatherInfo?.main?.temp;
-        humidity.innerText=weatherInfo?.main?.humidity;
+        temperature.innerText=`${weatherInfo?.main?.temp} °C`;
+        humidity.innerText=`${weatherInfo?.main?.humidity}%`;
     }
     function getLocation(){
         if(navigator.geolocation){
@@ -114,12 +116,17 @@ function getFromSessionStorage(){
 const searchInput=document.querySelector("[data-searchInput]");
   searchForm.addEventListener("submit",(e)=>{
     e.preventDefault();
-    if(searchInput.value==="") return;
-    fetchSearchWeatherInfo(searchInput);
+    let cityName = searchInput.value;
+    if(cityName==="") 
+    return;
+    else 
+    fetchSearchWeatherInfo(cityName);
   });
 
   async function fetchSearchWeatherInfo(city){
     loadingScreen.classList.add("active");
+    userInfoContainer.classList.remove("active");
+    grantAccessContainer.classList.remove("active");
     try {
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
@@ -129,12 +136,10 @@ const searchInput=document.querySelector("[data-searchInput]");
         userInfoContainer.classList.add("active");
         renderWeatherInfo(data);
     }
-    catch(err) {
-        var message="Error Occured! Location Not Found";
-        alert(message);
-        return true;
+    catch(error) {
+       console.log("cant find city",error);
     }
-      }
+      };
   
 
    
