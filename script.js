@@ -93,6 +93,16 @@ function getFromSessionStorage(){
         temperature.innerText=weatherInfo?.main?.temp;
         humidity.innerText=weatherInfo?.main?.humidity;
     }
+    function getLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else{
+            var message="Error Occured! Geolocation Not Supported";
+            alert(message);
+            return true;
+        }
+    }
   grantAccessBtn.addEventListener("click",getLocation);
 
    
