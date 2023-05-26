@@ -103,6 +103,14 @@ function getFromSessionStorage(){
             return true;
         }
     }
+    function showPosition(){
+        const userCoordinates={
+            lat: Position.coords.latitude,
+            lon: Position.coords.longitude,
+        }
+        sessionStorage.setItem("user-coordinates",JSON.stringify);
+        fetchUserWeatherInfo(userCoordinates);
+        }
   grantAccessBtn.addEventListener("click",getLocation);
 
    
