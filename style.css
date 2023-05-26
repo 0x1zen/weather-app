@@ -181,5 +181,15 @@ text-align:center;
     gap: 0 10px; 
     margin-bottom: 3rem;
 }
-
+.form-container.active{
+    display: flex;
+}
+.form-container input{
+    all:unset;
+    width: calc(100% - 80px);
+    height:40px;
+    padding: 0 20px;
+    background-color:rgba(219, 226, 239, 0.5);
+    border-radius: 10px;
+}
 
