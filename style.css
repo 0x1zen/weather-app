@@ -171,5 +171,15 @@ text-align:center;
     font-size: 1rem;
     font-weight: 200;
 }
+.form-container{
+    display: none;
+    width:90%;
+    max-width:550px;
+    margin:0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px; 
+    margin-bottom: 3rem;
+}
 
 
