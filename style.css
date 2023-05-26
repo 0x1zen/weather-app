@@ -101,4 +101,41 @@ text-align:center;
 .loading-container p{
     text-transform: uppercase;
 }
+.user-info-container{
+    /* display:none; */
+}
+
+.user-info-container.active{
+    display: flex;
+}
+.name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:0 0.5rem;
+    margin-bottom: 1rem;
+}
+.user-info-container p{
+    font-size:1.5rem;
+    font-weight:200;
+}
+
+.user-info-container img{
+    width:90px;
+    height:90px;
+}
+
+.name p{
+        font-size:2rem;
+}
+.name img{
+    width: 30px;
+    height:30px;
+    object-fit: contain;
+}
+.user-info-container p[data-temp] {
+    font-size:2.75rem;
+    font-weight:700;
+}
+
 
