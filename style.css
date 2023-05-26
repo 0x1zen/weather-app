@@ -195,4 +195,8 @@ text-align:center;
 .form-container input::placeholder{
     color: rgba(255, 255, 255, 0.7);
 }
+.form-container input:focus{
+    outline: 3px solid rgba(255, 255, 255, 0.7);
+}
+
 
